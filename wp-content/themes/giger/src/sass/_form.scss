@@ -1,0 +1,214 @@
+/**  Ninjia forms **/
+
+.ninja-forms-cont  {
+	margin: $margin-base*1.5 0;
+	
+	.ninja-forms-form-title {				
+		padding: $card-vertical-padding 0;		
+		cursor: pointer;
+		font-size: 16px;
+		line-height: 1.2;
+		font-weight: normal;		
+		color: $tst-color-primary;
+		margin: 0;
+	}
+	
+	form.ninja-forms-form {		
+		background: $tst-color-white;		
+		margin: 0;
+	}
+	
+	.hp-wrap, .ninja-forms-required-items, .hidden-wrap {
+		display: none;
+	}
+}
+
+.entry-content {
+	
+	form.ninja-forms-form {
+		border-top: 2px solid $tst-color-primary;
+		@include shadow-2dp();		
+		padding: $cell-elementary-3x;		
+	}
+}
+
+// text field
+.mdl-textfield.frm_form_field {
+	
+	.mdl-textfield__input {
+		font-family: $preferred_font;
+		line-height: 1.65;
+	}
+	
+	
+	&.is-disabled {
+		.mdl-textfield__label {
+			color: $tst-color-text-semi;
+		}		
+		.mdl-textfield__input {
+			color: unquote("rgba(#{$color-black}, 0.26)");
+		}
+	}
+	
+	
+	&.is-disabled.info {		
+		.mdl-textfield__label {
+			color: $tst-color-text-semi;
+		}		
+		.mdl-textfield__input {
+			border-bottom-style: solid;
+			color: $tst-color-primary;
+		}
+	}
+	
+	
+	&.is-dirty {
+		.mdl-textfield__label {
+			color: $tst-color-text-semi;
+		}
+		.mdl-textfield__input {
+			border-bottom-color: $input-text-bottom-border-color;			
+		}
+	}
+	
+	
+	&.is-focused {
+		.mdl-textfield__label {
+			color: $tst-color-primary;
+		}
+		.mdl-textfield__input {
+			border-bottom-color: $tst-color-primary;			
+		}
+	}
+	
+	&.is-invalid, &.frm_blank_field {
+		.mdl-textfield__input {
+			border-bottom-color: $input-text-error-color;			
+		}
+	}
+}
+
+
+//checkbox
+.field-wrap, .nf-desc {
+	padding: $input-text-vertical-spacing 0;
+	
+	p:last-child {
+		margin-bottom: 0;
+	}
+	
+	ul {
+		list-style-type: none;
+		margin-left: 0;
+	}
+}
+
+.mdl-checkbox__tick-outline { //tick field fix
+	mask: url("../images/tick-mask.svg?embed");
+	.mdl-checkbox.is-checked & { background: $checkbox-color url("../images/tick.svg?embed"); }
+	.mdl-checkbox.is-checked.is-disabled & { background: $checkbox-disabled-color url("../images/tick.svg?embed"); }
+}
+
+.tst-inputfix__label {
+	color: $tst-color-text-semi;
+	font-size: $input-text-floating-label-fontsize;
+	pointer-events: none;	
+	width: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-align: left;
+	padding-bottom: 4px;
+}
+
+// select
+
+//select
+select[multiple],
+select[size] {
+  // Make multiple select elements height not fixed
+  height: auto;
+}
+
+.tst-select {
+	box-sizing: border-box;
+	position: relative;
+	padding: $input-text-vertical-spacing 0;
+	
+	.mdl-menu__container {
+		width: 100% !important;
+		top: 0 !important;
+	}
+	.mdl-menu__outline {
+		width: 100% !important;	
+	}
+	
+	.tst-menu-trigger {
+		box-sizing: border-box;
+		display: block;
+		width: 100%;
+		border-bottom: 1px solid $input-text-bottom-border-color;
+		color: $tst-color-text; //correct
+		font-size: $input-text-font-size;
+		line-height: 1.25;
+		padding: 4px 25px 4px 0;
+		background: transparent url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iNiIgd2lkdGg9IjEwIj48cG9seWdvbiBwb2ludHM9IjAsMCAxMCwwIDUsNiIgc3R5bGU9ImZpbGw6cmdiYSgwLDAsMCwuMjQpOyIvPjwvc3ZnPg==") no-repeat right center;
+		text-transform: none;
+		font-weight: normal;
+		border-radius: 0;
+		text-align: left;
+		height: auto;
+		white-space: nowrap;
+	}
+	
+	ul, li {
+		box-sizing: border-box;
+		margin: 0 !important;
+		width: 100%;
+	}
+	
+	
+	.mdl-menu__item {
+		line-height: 48px;
+	}
+	
+	.mdl-menu__item.selected,
+	.mdl-menu__item.selected:hover {
+		color: $tst-color-primary;
+		background: transparent;
+	}
+}
+
+
+//submit
+.submit-wrap input {
+	box-shadow: 0 0 0 rgba(255,255,255, 0);
+}
+
+
+//messages
+.ninja-forms-field-error {
+	@extend .mdl-textfield__error;
+	visibility: visible;
+}
+
+
+.ninja-forms-response-msg {
+	
+	@include shadow-2dp();
+		padding: 8px 16px;
+		background-color: unquote("rgba(#{$palette-grey-100}, 1)");
+		border-left: 4px solid $tst-color-primary;
+		margin-bottom: $cell-elementary;
+		
+	p {
+		margin: 0;
+	}
+	
+	&.ninja-forms-error-msg  {
+		border-color: $input-text-error-color;
+	}
+	
+	&.empty {
+		display: none;
+	}
+}

@@ -1,0 +1,260 @@
+/** Donations **/
+body.single-leyka_campaign .page-header {
+	background: transparent url('../images/donate.jpg') no-repeat center center;
+	background-size: cover;
+	
+	h1.page-title {
+		padding: 84px 0 20px;
+		color: $tst-color-white;
+	}
+}
+
+.leyka-payment-option {
+	margin-bottom: 8px;
+		
+	.leyka-toggle-trigger {
+		border-bottom: 1px solid $tst-color-border;
+		padding: $card-vertical-padding 0;
+		margin-bottom: -1px;
+		cursor: pointer;
+		font-size: 16px;
+	}
+	
+	.leyka-toggle-area {
+		display: none;	
+	}
+	
+	.leyka-pm-form {
+		@include shadow-2dp();		
+	}
+	
+	.leyka-pm-fields {
+		padding: $margin-base $margin-base*1.5;
+	}
+	
+	.leyka-pm-desc {
+		border-bottom: 1px solid $tst-color-border;
+		padding: $margin-base $margin-base*1.5;
+		
+		p {
+			font-size: 14px;
+			line-height: 1.4;
+			margin: 0 0 4px 0;
+			color: $tst-color-text-semi;
+		}
+	}
+		
+	&.toggled {
+		.leyka-toggle-trigger {
+			border-bottom: 2px solid $tst-color-primary;
+			color: $tst-color-primary;
+			margin-bottom: 0;
+		}
+	}
+	
+	.box_details {
+		h6 { margin-top: 16px; }
+	}
+	
+	.recurring {
+		border: 1px solid $tst-color-border;
+		padding: $cell-elementary;
+		background: #f9f9f9;
+		margin-bottom: $cell-elementary-2x;
+	}
+}
+
+.leyka-form-footer {
+	padding-top: 8px;
+	text-align: right;
+	p {
+		@include typo-caption();
+		color: $tst-color-text-semi;
+	}
+}
+
+//form
+.leyka-pm-form {
+	
+	.leyka-field {
+		width: 100%;		
+	}
+	
+	.field-error {
+		visibility: visible;
+		display: none;
+		
+	}
+	
+	.amount {
+		position: relative;
+		
+		
+		.mdl-textfield {			
+			width: 110px;
+		}
+		
+		.currency {
+			position: absolute;
+			left: 110px + 10px;
+			top: 23px;
+			width: 44px;
+			font-size: $input-text-font-size;
+		}
+		
+		.field-error {
+			width: 100%;
+			position: absolute;
+			left: 0;
+			bottom: -4px;
+		}
+	}
+	
+	.agree {
+		padding: $input-text-vertical-spacing 0;		
+		
+		a {
+			display: inline-block;
+			font-size: 13px;
+			font-weight: 400;
+			@extend .truncate;
+			max-width: 100%;
+		}
+		
+		.field-error {
+			margin: 0;
+		}
+	}
+	
+	.submit {
+		padding-top: $input-text-vertical-spacing;
+		position: relative;
+		
+		.leyka-pm-icons {
+			@media screen and (max-width: 360px) { display: none; }			
+			position: absolute;
+			top: $input-text-vertical-spacing;
+			right: 0;
+		}
+	}
+}
+
+.leyka-pm-icons {
+	@include clearfix;
+	li {
+		float: left;
+		width: 52px;
+		height: 36px;
+		margin-left: 4px;
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+	}
+}
+
+
+.leyka-custom-modal {	
+	display: none;
+	box-sizing: border-box;
+	border-radius: 2px;
+	width: 90%;
+	@include for(tablet) {
+		width: 80%;
+	}
+	max-width: 564px;
+	@include calc(height, "100% - 220px");
+	max-height: 600px;	
+	background-color: $tst-color-white;
+	
+	.leyka-modal-close {
+		background: $tst-color-primary;
+		color: $tst-color-white;
+		width: 32px;
+		height: 32px;
+		border-radius: 50%;
+		@include shadow-2dp();
+		position: absolute;
+		top: -16px;
+		right: -16px;
+		text-align: center;
+		cursor: pointer;
+		i {
+			line-height: 32px;
+			vertical-align: middle;
+		}
+	}
+	
+	.leyka-oferta-text-frame {
+		box-sizing: border-box;
+		width: 100%;
+		height: 100%;
+		padding: $margin-base*1.5;
+		overflow-y: scroll;
+	}
+	
+	.leyka-oferta-text-flow {		
+		
+		p:first-child {
+			@include typo-title();
+		}
+	}
+}
+
+
+.donation-history.section {
+	padding: $margin-base 0;
+		
+	h5 {
+		@include typo-subhead();
+		font-weight: 500;
+		margin: 0;
+		color: $tst-color-link;		
+	}
+	
+	.ldl-item {
+		padding: $margin-base*1.5 0;
+		position: relative;
+		border-bottom: 1px solid $tst-color-border;
+	
+		&:last-child {
+			border-bottom: none;
+		}
+		
+		.amount {
+			font-size: 16px;
+			
+			@include for(tablet) {
+				position: absolute;
+				width: 17%;
+			}
+		}
+		
+		.purpose {
+			@include typo-body-2;
+			color: $tst-color-text;
+			font-weight: 500;
+			
+			@include for(tablet) {
+				margin-left: 18%;
+			}
+		}
+		
+		.meta  {
+			@include typo-caption;
+			color: $tst-color-text-semi;
+			line-height: 1.333;
+			
+			@include for(tablet) {
+				margin-left: 18%;
+			}
+		}
+	}
+}
+
+//submit errors
+#leyka-submit-errors {
+	@extend .frm_message;
+	& > span { font-weight: 500; }
+}
+

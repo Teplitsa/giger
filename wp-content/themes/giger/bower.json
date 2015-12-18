@@ -1,0 +1,21 @@
+{
+  "name": "orbi_minifier",
+  "version": "1.0.0",
+  "authors": [
+    "Anna Ladoshkina <webdev@foralien.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "material-design-lite": "~1.0.6",
+    "animate.css": "~3.5.0",
+    "easyModal.js": "https://github.com/flaviusmatis/easyModal.js.git",
+    "imagesloaded": "~3.2.0"
+  }
+}

@@ -1,0 +1,82 @@
+/**
+ * TST Next - WordPress Theme based on material design
+ * Developed in Teplitsa of social technologies https://te-st.ru
+ * GNU General Public License
+ * Contributors: Gleb Suvorov (suvorov.gleb@gmail.com), Anna Ladoshkina (webdev@foralien.com), Lev Zvyagincev (ahaenor@gmail.com),
+ * Denis Cherniatev (denis.cherniatev@gmail.com), Denis Kulandin (kulandin@gmail.com )
+ **/
+
+/*---------------------------------------------------------
+ Project vars (_vars.scss)
+-------------------------------------------------------- */
+
+/** Paddings **/
+
+$cell-elementary:    8px;
+$cell-elementary-2x: $cell-elementary*2;
+$cell-elementary-3x: $cell-elementary*3;
+
+$base:               24px;
+$em-base:            10px; //used by rem function of bourbon
+$margin-base:        $cell-elementary-2x;
+
+
+/** Fonts  */
+
+$sans:     $preferred_font;
+$heading : $preferred_font ;
+$mono : '  Lucida Sans Typewriter', 'Lucida Console', Monaco, monospace;
+
+
+/* Colors (shortcuts) */
+
+$tst-color-text:         $text-color-primary !default;
+$tst-color-border:       rgba(0,0,0,0.12) !default;
+$tst-color-text-semi:    rgba(0,0,0,0.54) !default;
+$tst-color-link:         $text-link-color !default;
+$tst-color-white:        unquote("rgba(#{$color-white}, 1)") !default;
+$tst-color-primary:      unquote("rgba(#{$color-primary}, 1)") !default;
+$tst-color-primary-dark: unquote("rgba(#{$color-primary-dark}, 1)") !default;  
+$tst-color-accent:       unquote("rgba(#{$color-accent}, 1)") !default;  
+$tst-color-white-semi:   rgba(255,255,255, 0.8) !default;
+
+
+/* Media Queries */
+
+@mixin for($media) {
+
+	@if $media == tablet {
+		@media screen and (min-width: $grid-tablet-breakpoint) { @content; }
+	}
+	@else if $media == desktop {
+		@media screen and (min-width: $grid-desktop-breakpoint) { @content; }
+	}
+}
+
+@mixin upto($media) {
+	@if $media == phone {
+		@media screen and (max-width: $grid-tablet-breakpoint - 1) { @content; }
+	}
+	@else if $media == tablet {
+		@media screen and (max-width: $grid-desktop-breakpoint - 1) { @content; }
+	}	
+}
+
+
+@mixin shadow-2dp_up() {
+  box-shadow: 0 -2px 2px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+              0 -3px 1px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity),
+              0 -1px 5px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+}
+
+@mixin typo-body-base($colorContrast: false, $usePreferred: false) {
+  @include typo-preferred-font($usePreferred);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0;
+
+  @if $colorContrast {
+    opacity: 0.87;
+  }
+}

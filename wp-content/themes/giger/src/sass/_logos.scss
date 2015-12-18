@@ -1,0 +1,39 @@
+/** Logo styles **/
+
+svg.logo { display: inline-block; }
+
+//logo in top nav panel
+.site-logo {
+	text-align: center;
+	
+	.logo {		
+		width: 82px;
+		height: 42px;
+		fill: #ffffff;	
+	}
+}
+
+//logo in drawer panel
+.navigation-logo {
+	display: block;
+	text-align: center;
+			
+	.logo {		
+		width: 27px;
+		height: 46px;
+		fill: $tst-color-primary;
+	}		
+}
+
+
+//homepage
+.home-logo {
+	position: relative;
+	z-index: 10;
+	padding: 8px 0 48px;
+	
+	.logo {		
+		width: 280px;
+		height: 85px;
+	}
+}

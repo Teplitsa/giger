@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+//inits
+@import "bourbon";
+@import "components/reset";
+
+//color
+@import "color-definitions";
+
+$color-primary:          $palette-deep-orange-500 !default;
+$color-primary-dark:     $palette-deep-orange-A700 !default;
+$color-accent:           $palette-light-blue-A100 !default;
+$color-primary-contrast: $color-dark-contrast !default;
+$color-accent-contrast:  $color-dark-contrast !default;
+
+//mdl
+@import "mdl_variables";
+@import "material-design-lite";
+
+//project utilities
+@import "project_variables";
+@import "components/utility";
+@import "components/semantics";
+
+@import "modules";
+@import "front";
+@import "form";
+@import "posts";
+@import "calendar";
+@import "home";
+@import "donations";

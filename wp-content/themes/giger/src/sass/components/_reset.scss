@@ -1,0 +1,132 @@
+/*---------------------------------------------------------
+ Reset (_reset.scss)
+-------------------------------------------------------- */
+// Reset
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, main, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed,  figure, figcaption, footer, header, hgroup,  menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+html {
+	box-sizing: border-box;
+}
+body {
+	line-height: 1;
+}
+*:before, *:after {
+	box-sizing: inherit;
+}
+ol,
+ul {
+	list-style: none;
+}
+blockquote,
+q {
+	quotes: none;
+}
+q:before,
+q:after,
+blockquote:before,
+blockquote:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+
+
+// Normalize
+html {  //  normalisation for font size and position on page
+	font-size: 100%; 	
+	-webkit-text-size-adjust: 100%; 
+	-ms-text-size-adjust: 100%;
+	background: #fff;
+}
+
+// Links
+a {
+  background-color: transparent;
+}
+a:focus,
+a:hover,
+a:active {
+	outline: 0;
+	outline: none;
+}
+
+// HTML5
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+  display: block;
+}
+
+audio,
+canvas,
+video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+// Prevents modern browsers from displaying 'audio' without controls
+audio:not([controls]) {
+	display: none;
+}
+
+// Always support hidden attr 
+[hidden],
+template {
+	display: none;
+}
+// Prevents sub and sup affecting line-height in all browsers
+sub,
+sup {
+	font-size: 75%;
+	height: 0;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+sup {
+	bottom: 1ex;
+}
+sub {
+	top: .5ex;
+}
+
+// Imgs
+img {	
+	border: 0; 
+	-ms-interpolation-mode: bicubic;
+	vertical-align: bottom;
+	max-width: 100%;
+	height: auto;
+}
+
+a img {
+	border: 0;
+	vertical-align: middle;
+}
+
+video {
+	max-width: 100%;
+	height: auto;
+}
+
+svg:not(:root) {
+	overflow: hidden;
+}
+

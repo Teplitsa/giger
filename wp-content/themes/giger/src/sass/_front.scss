@@ -1,0 +1,551 @@
+/** Project styles **/
+
+body {		
+	background: unquote("rgba(#{$palette-grey-100}, 1)");
+	@include typo-body-base(false, true);
+	//position: relative;	
+}
+
+p {
+	
+}
+
+/**  Header **/ 
+$sh-base : $cell-elementary-2x;
+body > svg { display: none; }
+.site-logo {
+	display: block;
+	width: auto;	
+	position: absolute;
+	top: 10px;
+	left: 50%;	
+	@include transform(translateX(-50%));
+	max-height: $layout-desktop-header-height - 16px;
+	@media screen and (max-width: $layout-screen-size-threshold) {
+		max-height: $layout-mobile-header-height - 14px;
+		top: 7px;
+	}
+	
+	@include upto(phone) {
+		display: none;
+	}
+	
+	a {
+		display: block;
+		height: 100%;
+		max-height: $layout-desktop-header-height - 16px;
+		@media screen and (max-width: $layout-screen-size-threshold) {
+			max-height: $layout-mobile-header-height - 14px;
+		}
+	}	
+}
+
+.page-template-page-home .site-logo {
+	opacity: 0;
+}
+
+.crumbs {
+	display: none;
+	@include for(desktop){
+		display: block;
+	}
+}
+
+.crumb-name {
+	display: none;
+	@include for(tablet){
+		display: inline;
+	}
+	opacity: 0;
+	
+}
+
+.crumb-link {
+	text-decoration: none;
+	letter-spacing: normal;
+	font-weight: $card-title-text-font-weight;
+	color: rgba(255,255,255, 0.7);
+	&:hover, &:focus, &:active {
+		color: $tst-color-white;		
+	}
+}
+
+.nojs-menu {
+	margin-left: -56px;
+	color: $tst-color-white;	
+}
+
+
+
+// drawer
+#site_nav {
+	
+	.mdl-layout-title {
+		border-bottom: 1px solid $tst-color-border;
+		padding-left: 0;
+		
+	}
+		
+	.mdl-navigation__link {
+		color: unquote("rgba(#{$palette-grey-800}, 1)");		
+		font-weight: 400;
+		padding-right: 30px;
+	}
+	
+	.sub-menu {
+		.mdl-navigation__link {
+			padding: $cell-elementary/2 30px $cell-elementary/2 40px;
+			
+			&:before {
+				content: '— ';				
+			}
+		}
+	}
+	
+	.social-menu {
+		padding-left: 40px;
+		margin-top: 16px;
+	}
+	
+	li.donate > a.mdl-navigation__link {
+		color: $tst-color-accent;
+		text-decoration: underline;
+	} 
+}
+
+.page-header {	
+	background-color: #333;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	//min-height: 200px;
+	color: $tst-color-white;
+	position: relative;
+		
+	&:before {
+		content: '';
+		display:block;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top:0;
+		left: 0;		
+		z-index: 1;
+		
+		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&amp;0+0,0.5+63,0.35+100 */
+		background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.45) 58%, rgba(0,0,0,0.65) 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(58%,rgba(0,0,0,0.45)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.45) 58%,rgba(0,0,0,0.65) 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.45) 58%,rgba(0,0,0,0.66) 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.45) 58%,rgba(0,0,0,0.66) 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%, rgba(0,0,0, 0.45) 58%, rgba(0,0,0, 0.65) 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#59000000',GradientType=0 ); /* IE6-9 */
+	}
+		
+	.page-title {
+		position: relative;
+		margin: 0;
+		color: $tst-color-white;
+		font-weight: 200;
+		z-index: 10;
+		padding: $sh-base*3 0 $sh-base*2.5;		
+	}
+		
+}
+
+.page-content {	
+	position: relative;
+	z-index: 100;
+	top: -3.5*$sh-base;
+	min-height: 520px;
+}
+
+// context header modifications
+body.error404,
+body.single,
+body.page-template-page-simple,
+body.page-template-default,
+body.page-template-page-sidebar {
+	
+	.page-header .page-title {
+		padding: $sh-base*3 0 $sh-base;		
+		line-height: 1.2;
+	}
+	
+	.page-content {			
+		top: auto;		
+	}
+}
+
+body.search {
+	.page-content {			
+		top: auto;
+		margin-bottom: $margin-base;
+	}
+	
+	.paging-navigation {
+		padding-top: $margin-base;
+	}
+}
+
+body.archive.tax-person_cat,
+body.archive.tax-org_cat,
+body.archive.category,
+body.tax-auctor {
+	.page-header .page-title {
+		padding: $sh-base*3 0 $sh-base/2;		
+		line-height: 1.2;
+	}
+	.author-description {
+		position: relative;
+		padding-bottom: $sh-base*3;
+		z-index: 10;
+		color: rgba(255,255,255, 0.7);
+		max-width: 760px;
+	}
+}
+
+body.cards-page-preface {
+	.page-header .page-title {
+		padding: $sh-base*2 0 $sh-base;				
+	}
+	.page-content {
+		top: auto;	
+		padding-top: $cell-elementary-2x;
+		padding-bottom: $cell-elementary-2x;
+	}
+}
+
+body.page-template-page-simple .entry-content { min-height: 300px; }
+
+
+/** Bottom **/
+
+
+// Widgets
+.widget-bottom {
+	margin-bottom: $grid-desktop-gutter;
+	
+	&:last-child {
+		margin-bottom: 0;
+	}
+	
+	.widget-title {
+		@include typo-preferred-font(true);
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 24px;		
+		margin-bottom: $grid-desktop-gutter;
+	}
+	
+	.textwidget {
+		@include typo-body-1(false, true);		
+	}
+}
+
+// Bottombar
+#bottombar { margin: 24px 0 80px; }
+
+
+.site-footer {	
+	background: $tst-color-white;
+	@include shadow-2dp();
+	font-size: 12px;
+	color: $tst-color-text-semi;
+		
+	a {
+		color: $tst-color-text;
+		text-decoration: underline;
+		&:hover, &:focus, &:active {
+			color: $tst-color-link;		
+		}
+	}	
+		
+	.credits {
+		@include clearfix;
+	}
+	
+	.copy {
+		
+		
+		a { font-weight: normal; }
+		p {
+			margin: 0;
+			color: $tst-color-text;
+						
+			&:last-child {
+				color: $tst-color-text-semi;
+				font-size: 12px;				
+			}
+		}
+	}
+}
+
+.footer-buttons {
+	@include clearfix;
+	padding-top: 8px;
+	
+	form {
+		float: left;
+	}
+	.social-menu {
+		float: left;
+		margin: 0 8px 0 0;
+				
+		li {				
+			a {
+				width: 32px;
+				height: 32px;
+				font-size: 16px;
+				line-height: 28px;
+			}
+			
+			.sh-icon  {
+				width: 16px;
+				height: 16px;
+				display: inline-block;
+				fill: #ffffff;			
+				margin: 0 0 0;
+				vertical-align: middle;		
+			}
+		}
+	}
+	
+	.mdl-textfield {
+		padding: 0;
+		height: 32px;
+		
+		.mdl-button--icon {
+			border-radius: 4px;
+			background: $tst-color-primary;
+			color: $tst-color-white;
+			
+		}
+		
+		.mdl-button {
+			bottom: 0;	
+		}
+	}
+	
+	.mdl-textfield__expandable-holder {
+		margin-left: 36px;
+	}
+}
+
+.te-st-bn {
+	text-align: right;
+	position: relative;
+	height: 54px;
+	
+	a {
+		display: block;
+		width: 110px;
+		height: 50px;
+		padding-top: 5px;
+		text-align: center;
+		box-sizing: border-box;
+		position: absolute;
+		top: 0;
+		right: 0;		
+		
+		border-radius: 5px;
+		box-shadow: 1px 1px 0px rgba(150,150,150, 0.5);
+		
+		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f9f9f9+1,e0e0e0+99 */
+background: #f9f9f9; /* Old browsers */
+background: -moz-linear-gradient(top,  #f9f9f9 1%, #e0e0e0 99%); 
+background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#f9f9f9), color-stop(99%,#e0e0e0)); 
+background: -webkit-linear-gradient(top,  #f9f9f9 1%,#e0e0e0 99%); 
+background: -o-linear-gradient(top,  #f9f9f9 1%,#e0e0e0 99%);
+background: -ms-linear-gradient(top,  #f9f9f9 1%,#e0e0e0 99%); 
+background: linear-gradient(to bottom,  #f9f9f9 1%,#e0e0e0 99%); 
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#e0e0e0',GradientType=0 ); 
+	}
+		
+	span {
+		font-size: 12px;
+		line-height: 16px;
+		color: $tst-color-text-semi;
+		display: inline-block;
+		margin-right: 120px;
+		padding-top: 10px;
+	}
+	
+	.tst-icon {
+		display: inline-block;
+		width: 87px;
+		height: 40px;
+	}
+}
+
+
+/** Sidebar */
+.donate-widget {	
+	.fab {
+		@include upto(tablet){
+			display: none;
+		}
+		
+		.mi {
+			display: inline-block;
+			width: 24px;
+			height: 24px;			
+			margin-top: 16px;
+			use { fill: #fff; }
+		}
+	}
+	
+	h4 {
+		display: none;
+		color: $tst-color-primary;
+		font-weight: $card-title-text-font-weight;
+		
+		@include for(desktop) {
+			font-size: 22px;
+			display: block;
+			margin-left: 72px;
+			margin-top: 12px;
+			margin-bottom: 12px+ 56px/2;
+		}
+	}
+}
+
+//fab on mobile
+#fab-mobile {
+	position: absolute;
+	z-index: 100000;	
+	bottom: 36px;
+	right: 30px;
+	
+	@include for(desktop) {
+		display: none;
+	}
+}
+
+.movable-widget {
+	.sidebar {
+		height: 100%;
+	}
+	
+	.widget_socila_links {
+		display: none;
+		@include for(desktop) { display: block; }
+	}
+}
+
+.widget_nav_menu.mdl-card { //nav widget
+	height: auto;
+	
+	h5 {
+		padding: $cell-elementary-2x;
+		margin: 0;
+		background: $tst-color-primary;
+		color: $tst-color-white;
+		font-weight: $card-title-text-font-weight;
+	}
+	
+	div[class *="container"] {
+		padding: $cell-elementary-2x;
+		
+		li {
+			margin-bottom: $cell-elementary;
+		}
+		
+		li ul {
+			margin-top: $cell-elementary;
+			margin-left: $cell-elementary-2x;
+			
+			li {
+				margin-bottom: $cell-elementary/2;
+			}
+		}
+		
+		a {
+			@include transition(all 0.35s);
+			&:hover {
+				color: $tst-color-primary-dark;
+			}
+		}
+	}
+}
+
+.widget_text.mdl-card  {
+	height: auto;
+	@include for(desktop) { min-height: 280px; }
+	
+	h5 {
+		padding: $cell-elementary-2x;
+		margin: 0;
+		background: $tst-color-primary;
+		color: $tst-color-white;
+	}
+	
+	.textwidget {
+		padding: $cell-elementary-2x;
+	}
+}
+
+
+.sidebar {		
+	
+	@include for(desktop) {		
+		margin-left: 72px;
+		
+		.donate-widget {
+			margin-left: -72px;
+		}
+	}
+}
+
+.page-template-default .sidebar,
+.single .sidebar {	
+	
+	@include for(desktop) {				
+		margin-top: -52px;				
+	}
+}
+
+
+/** Elements **/
+.paging-navigation {
+	text-align: center;
+	
+	.mdl-button {
+		background: unquote("rgba(#{$palette-grey-300}, 1)");
+		padding-left: $cell-elementary-2x;
+		padding-right: $cell-elementary-2x;
+		color:  unquote("rgba(#{$palette-grey-500}, 1)");
+		@include transition(all 0.35s);
+		
+		&:hover, &:focus, &:active {
+			background: unquote("rgba(#{$palette-grey-400}, 1)");
+			color: $tst-color-white; 
+		}
+	}
+}
+
+section.error-404 {
+	margin-bottom: $margin-base*2;
+}
+
+.pw_map_canvas {
+	margin: $margin-base 0;
+}
+
+.page-template-default .entry-content {
+	min-height: 250px;
+}
+
+/** Menu on mobile **/
+@include upto(phone) {		
+	
+	.search-item { display: none; }
+}
+
+/** Adminbar **/
+#wpadminbar #wp-admin-bar-wp-logo .ab-icon::before {
+	color: #01E21A;
+}
+
+/** Logos **/
+@import "logos";
