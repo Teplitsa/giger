@@ -58,35 +58,59 @@
 - набор демо-изображений 
 
 
-## Системные требования 
+## Установки
 
-Установливаем на LAMP. Нужно:
+*Установка на Vagrant*
 
-- PHP 5.6+
-- MySQL 5.6+ (поддержка кодировки utf8mb4)
+1. Установить vagrant ([подробнее об установке](https://docs.vagrantup.com/v2/installation/index.html)).
+
+2. Добавить строку '192.168.33.10  giger.local' в файл хостов:
+	- для OS X: `sudo -- sh -c "echo  \ \ >> /etc/hosts";sudo -- sh -c "echo 192.168.33.10  giger.local >> /etc/hosts"`
+	- для других систем - не знаю
+	
+3. Клонировать репозиторий в папку проекта (должна быть пустой):
+	- `git clone https://github.com/Teplitsa/giger.git .`
+
+4. Запустить проект vagrant:
+	- `vagrant up`
+
+5. Cайт доступен по адресу http://giger.local.  Вход в административную часть http://giger.local/core/wp-login.php с логином `giger` и паролем `121121`. Необходимо создать нового пользователя, используя стандартный диалог WordPress http://giger.local/core/wp-admin/user-new.php, а аккаунт `giger` удалить.
+
+
+*Уставка без Vagrant*
+
+Нужно:
+- LAMP: PHP 5.6+ и MySQL 5.6+ (поддержка кодировки utf8mb4)
 - Composer для PHP ([подробнее об установке](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)), с правами на запуск в папке проекта
-- База данных mysql и параметры доступа к ней (хост, имя базы, имя пользователя и пароль)
-- Для локальной установки: добавить виртуальный хост http://giger.local
+- Для локальной установки: добавить строку '127.0.0.1  giger.local' в файл хостов
 - На удаленном сервере: домен, указывающий на папку проекта
-
-## Процесс установки
 
 Все действия осуществляются в папке проекта.
 
-1. Клонировать репозиторий в папку проекта (она должна быть пустой).
-`git clone -b giger-master https://github.com/Teplitsa/testpack.git .` (исправить команду для реального репо)
+1. Клонировать репозиторий в папку проекта (она должна быть пустой):
+	- `git clone https://github.com/Teplitsa/giger.git .`
 
-2. Скопировать и переименовать файл `wp-config-orig.php` в `wp-config.php`. В полученном файле заполнить информацию о доступе к БД, ключи аутентификации и домен, если устанавливаем не на giger.local.
+2. Создать базу и импортировать в нее тестовые данные:
+	- `echo 'CREATE DATABASE IF NOT EXISTS giger' | mysql --user=your_db_username --password=your_db_password`
+	- `unzip -p ./attachments/startertest.sql.zip | mysql --user=your_db_username --password=your_db_password giger`
 
-3. `composer install` - в результате будет установлен WordPress последней версии и необходимые плагины.
+3. Установить WordPress и необходимые плагины с помощью Composer:
+	- `composer install`
 
-4. Импортировать в БД дамп с демо-данными - `attachments/startertest.sql.zip`. Если установка осуществляется для домена отличного от `giger.local` выполнить замену домена в базе с использованием соответствующих утилит, поддерживающих сериализованные данные - рекомендуем [Search and Replace скрипт от interconnect/it](https://interconnectit.com/products/search-and-replace-for-wordpress-databases/).
+4. Создать конфигурационный файл из шаблона и заполнить в нем информацию о доступе к базе данных (при установке на домен, отличный от giger.local, необходимо сменить также и домен):
+	- `cat wp-config-orig.php | sed 's/dev_db/giger/g;s/dev_user/your_db_username/g;s/dev_password/your_db_password/g' > wp-config.php` 
 
-5. Распаковать содержимое папки `attachments/uploads.zip` в `wp-content/uploads`.
+5. Распаковать содержимое папки с изображениями `attachments/uploads.zip` в `wp-content/uploads`:
+	- `unzip ./attachments/uploads.zip -d ./wp-content/`
 
-6. Сайт отвечает по адресу _http://giger.local_ (или вашему домену). Вход в административную часть _http://giger.local/core/wp-login.php_ с логином _giger_ и паролем _121121_. Необходимо создать нового пользователя, используя стандартный диалог WordPress _http://giger.local/core/wp-admin/user-new.php_, а аккаунт _giger_ удалить.
+6. Создать файл `.htaccess` из шаблона и настроить права доступа к нему:
+	- `cat ./attachments/.htaccess.orig > .htaccess`
+	- `chmod -v 666 .htaccess`
 
-7. Сгенерировать заново правила ЧПУ: на странице _http://giger.local/core/wp-admin/options-permalink.php_ сохранить настройки без изменений.
+7. Сайт отвечает по адресу _http://giger.local_ (или вашему домену). Вход в административную часть _http://giger.local/core/wp-login.php_ с логином _giger_ и паролем _121121_. Необходимо создать нового пользователя, используя стандартный диалог WordPress _http://giger.local/core/wp-admin/user-new.php_, а аккаунт _giger_ удалить.
+
+
+*Изменение исходного кода темы*
 
 Сайт работает и можно вносить свои материалы. Если вы хотите корректировать код темы, потребуются дополнительные настройки рабочего окружения для использования таск-менеджера [gulp](http://gulpjs.com/).
 
