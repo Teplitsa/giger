@@ -62,7 +62,7 @@
 
 **Установка на Vagrant**
 
-1. Установить vagrant ([подробнее об установке](https://docs.vagrantup.com/v2/installation/index.html)).
+1. Установить Vagrant ([подробнее об установке](https://docs.vagrantup.com/v2/installation/index.html)).
 
 2. Добавить строку '192.168.33.10  giger.local' в файл хостов:
 	- для OS X: `sudo -- sh -c "echo  \ \ >> /etc/hosts";sudo -- sh -c "echo 192.168.33.10  giger.local >> /etc/hosts"`
