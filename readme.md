@@ -21,6 +21,12 @@
 
 ## Состав пакета
 
+- тема оформления Giger
+
+- набор демо-данных в виде дампа базы
+
+- набор демо-изображений 
+
 - ядро WordPress последней версии
 
 - набор плагинов для реализации основных функций сайта
@@ -50,12 +56,7 @@
 	- [WP Sync DB Media Files](https://github.com/wp-sync-db/wp-sync-db-media-files)
 	- [Force Regenerate Thumbnails](https://wordpress.org/plugins/force-regenerate-thumbnails/) 
 	- [Post Duplicator](https://wordpress.org/plugins/post-duplicator/) 
-	
-- тема оформления Giger
 
-- набор демо-данных в виде дампа базы
-
-- набор демо-изображений 
 
 
 ## Установка
@@ -64,17 +65,18 @@
 
 1. Установить Vagrant ([подробнее об установке](https://docs.vagrantup.com/v2/installation/index.html)).
 
-2. Добавить строку `192.168.33.10  giger.local` в файл хостов:
+2. Добавить `192.168.33.10  giger.local` в файл хостов:
 	- для OS X: `sudo -- sh -c "echo  \ \ >> /etc/hosts";sudo -- sh -c "echo 192.168.33.10  giger.local >> /etc/hosts"`
-	- для других систем - не знаю
-	
-3. Клонировать репозиторий в папку проекта (должна быть пустой):
-	- `git clone https://github.com/Teplitsa/giger.git .`
 
-4. Запустить проект vagrant:
-	- `vagrant up`
+3. Создать папку проекта:
+	- `mkdir giger.local`
+	- `cd giger.local`
 
-5. Cайт доступен по адресу http://giger.local.  Вход в административную часть http://giger.local/core/wp-login.php с логином `giger` и паролем `121121`. Необходимо создать нового пользователя, используя стандартный диалог WordPress http://giger.local/core/wp-admin/user-new.php, а аккаунт `giger` удалить.
+4. Клонировать репозиторий: `git clone https://github.com/Teplitsa/giger.git .`
+
+5. Запустить `vagrant up`
+
+6. Cайт доступен по адресу http://giger.local.  Вход в админку http://giger.local/core/wp-login.php с логином `giger` и паролем `121121`. Необходимо создать нового пользователя http://giger.local/core/wp-admin/user-new.php, а аккаунт `giger` удалить.
 
 
 **Уставка без Vagrant**
@@ -82,20 +84,20 @@
 Нужно:
 - LAMP: PHP 5.6+ и MySQL 5.6+ (поддержка кодировки utf8mb4)
 - Composer для PHP ([подробнее об установке](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)), с правами на запуск в папке проекта
-- Для локальной установки: добавить строку '127.0.0.1  giger.local' в файл хостов
+- Для локальной установки: добавить `127.0.0.1  giger.local` в файл хостов
 - На удаленном сервере: домен, указывающий на папку проекта
 
-Все действия осуществляются в папке проекта.
+0. Создать папку проекта:
+	- `mkdir giger.local`
+	- `cd giger.local`
 
-1. Клонировать репозиторий в папку проекта (она должна быть пустой):
-	- `git clone https://github.com/Teplitsa/giger.git .`
+1. Клонировать репозиторий: `git clone https://github.com/Teplitsa/giger.git .`
 
 2. Создать базу и импортировать в нее тестовые данные:
 	- `echo 'CREATE DATABASE IF NOT EXISTS giger' | mysql --user=your_db_username --password=your_db_password`
 	- `unzip -p ./attachments/startertest.sql.zip | mysql --user=your_db_username --password=your_db_password giger`
 
-3. Установить WordPress и необходимые плагины с помощью Composer:
-	- `composer install`
+3. Запустистить: `composer install`
 
 4. Создать конфигурационный файл из шаблона и заполнить в нем информацию о доступе к базе данных (при установке на домен, отличный от giger.local, необходимо сменить также и домен):
 	- `cat wp-config-orig.php | sed 's/dev_db/giger/g;s/dev_user/your_db_username/g;s/dev_password/your_db_password/g' > wp-config.php` 
@@ -107,7 +109,7 @@
 	- `cat ./attachments/.htaccess.orig > .htaccess`
 	- `chmod -v 666 .htaccess`
 
-7. Сайт отвечает по адресу _http://giger.local_ (или вашему домену). Вход в административную часть _http://giger.local/core/wp-login.php_ с логином _giger_ и паролем _121121_. Необходимо создать нового пользователя, используя стандартный диалог WordPress _http://giger.local/core/wp-admin/user-new.php_, а аккаунт _giger_ удалить.
+7. Сайт отвечает по адресу _http://giger.local_ (или вашему домену). Вход в админку _http://giger.local/core/wp-login.php_ с логином _giger_ и паролем _121121_. Необходимо создать нового пользователя _http://giger.local/core/wp-admin/user-new.php_, а аккаунт _giger_ удалить.
 
 
 **Изменение исходного кода темы**
