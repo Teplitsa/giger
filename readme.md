@@ -1,6 +1,6 @@
 # Giger #
 
-**Cтартовый пакет для сайта НКО** - [giger.te-st.ru]()
+**Cтартовый пакет для сайта НКО** - [giger.te-st.ru](https://giger.te-st.ru)
 
 ![Гигер](http://leyka.te-st.ru/wp-content/uploads/assets/giger-logo-temp.png?stamp=123)
 
@@ -76,7 +76,7 @@
 
 5. Запустить `vagrant up`
 
-6. Cайт доступен по адресу http://giger.local.  Вход в админку http://giger.local/core/wp-login.php с логином `giger` и паролем `121121`. Необходимо создать нового пользователя http://giger.local/core/wp-admin/user-new.php, а аккаунт `giger` удалить.
+6. Сайт отвечает по адресу http://giger.local. Вход в админку http://giger.local/core/wp-login.php с логином _giger_ и паролем _121121_. Необходимо создать нового пользователя http://giger.local/core/wp-admin/user-new.php, а аккаунт _giger_ удалить.
 
 
 **Уставка без Vagrant**
@@ -97,7 +97,7 @@
 	- `echo 'CREATE DATABASE IF NOT EXISTS giger' | mysql --user=your_db_username --password=your_db_password`
 	- `unzip -p ./attachments/startertest.sql.zip | mysql --user=your_db_username --password=your_db_password giger`
 
-3. Запустистить: `composer install`
+3. Запустить: `composer install`
 
 4. Создать конфигурационный файл из шаблона и заполнить в нем информацию о доступе к базе данных (при установке на домен, отличный от giger.local, необходимо сменить также и домен):
 	- `cat wp-config-orig.php | sed 's/dev_db/giger/g;s/dev_user/your_db_username/g;s/dev_password/your_db_password/g' > wp-config.php` 
@@ -109,14 +109,14 @@
 	- `cat ./attachments/.htaccess.orig > .htaccess`
 	- `chmod -v 666 .htaccess`
 
-7. Сайт отвечает по адресу _http://giger.local_ (или вашему домену). Вход в админку _http://giger.local/core/wp-login.php_ с логином _giger_ и паролем _121121_. Необходимо создать нового пользователя _http://giger.local/core/wp-admin/user-new.php_, а аккаунт _giger_ удалить.
+7. Сайт отвечает по адресу http://giger.local (или вашему домену). Вход в админку http://giger.local/core/wp-login.php с логином _giger_ и паролем _121121_. Необходимо создать нового пользователя http://giger.local/core/wp-admin/user-new.php, а аккаунт _giger_ удалить.
 
 
 **Изменение исходного кода темы**
 
 Сайт работает и можно вносить свои материалы. Если вы хотите корректировать код темы, потребуются дополнительные настройки рабочего окружения для использования таск-менеджера [gulp](http://gulpjs.com/).
 
-//про гульп допишем тут
+
 
 
 ## Помощь проекту
