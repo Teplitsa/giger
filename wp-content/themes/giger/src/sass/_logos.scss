@@ -5,10 +5,15 @@ svg.logo { display: inline-block; }
 //logo in top nav panel
 .site-logo {
 	text-align: center;
+	top: 12px;
+	
+	@media screen and (max-width: $layout-screen-size-threshold) {		
+		top: 8px;
+	}
 	
 	.logo {		
-		width: 82px;
-		height: 42px;
+		width: 29px;
+		height: 40px;
 		fill: #ffffff;	
 	}
 }
@@ -19,8 +24,8 @@ svg.logo { display: inline-block; }
 	text-align: center;
 			
 	.logo {		
-		width: 27px;
-		height: 46px;
+		width: 29px;
+		height: 40px;
 		fill: $tst-color-primary;
 	}		
 }
@@ -33,7 +38,7 @@ svg.logo { display: inline-block; }
 	padding: 8px 0 48px;
 	
 	.logo {		
-		width: 280px;
-		height: 85px;
+		width: 250px;
+		height: 114px;
 	}
 }

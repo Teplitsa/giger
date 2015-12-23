@@ -198,7 +198,7 @@ function tst_site_logo($size = 'regular') {
 
 	switch($size) {
 		case 'context':
-			$file = 'plain-logo-accent';
+			$file = 'plain-logo-small';
 			break;
 		case 'small':
 			$file = 'plain-logo-small';

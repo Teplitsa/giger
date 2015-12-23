@@ -22,3 +22,4 @@ _temp
 .sass-cache
 bower_components
 node_modules
+.vagrant

@@ -17,13 +17,11 @@ body > svg { display: none; }
 	display: block;
 	width: auto;	
 	position: absolute;
-	top: 10px;
 	left: 50%;	
 	@include transform(translateX(-50%));
 	max-height: $layout-desktop-header-height - 16px;
 	@media screen and (max-width: $layout-screen-size-threshold) {
-		max-height: $layout-mobile-header-height - 14px;
-		top: 7px;
+		max-height: $layout-mobile-header-height - 14px;		
 	}
 	
 	@include upto(phone) {
