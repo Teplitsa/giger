@@ -65,8 +65,8 @@
 
 1. Установить Vagrant ([подробнее об установке](https://docs.vagrantup.com/v2/installation/index.html)).
 
-2. Добавить `192.168.33.10  giger.local` в файл хостов:
-	- для OS X: `sudo -- sh -c "echo  \ \ >> /etc/hosts";sudo -- sh -c "echo 192.168.33.10  giger.local >> /etc/hosts"`
+2. Добавить `192.168.13.37  giger.local` в файл хостов:
+	- для OS X: `sudo -- sh -c "echo  \ \ >> /etc/hosts";sudo -- sh -c "echo 192.168.13.37  giger.local >> /etc/hosts"`
 
 3. Создать папку проекта:
 	- `mkdir giger.local`
@@ -77,6 +77,8 @@
 5. Запустить `vagrant up`
 
 6. Сайт отвечает по адресу http://giger.local. Вход в админку http://giger.local/core/wp-login.php с логином _giger_ и паролем _121121_. Необходимо создать нового пользователя http://giger.local/core/wp-admin/user-new.php, а аккаунт _giger_ удалить.
+
+Доступ к гостевой машине - 'vagrant ssh', выход - `exit`, остановить машину без потери данных - `vagrant suspend`, возобновить работу - `vagrant resume`, удалить гостевую машину `vagrant destroy`. Подробнее о командах Vagrant читайте в [документации](https://docs.vagrantup.com/v2/cli/index.html).
 
 
 **Уставка без Vagrant**
@@ -112,11 +114,29 @@
 7. Сайт отвечает по адресу http://giger.local (или вашему домену). Вход в админку http://giger.local/core/wp-login.php с логином _giger_ и паролем _121121_. Необходимо создать нового пользователя http://giger.local/core/wp-admin/user-new.php, а аккаунт _giger_ удалить.
 
 
-**Изменение исходного кода темы**
+## Изменение исходного кода темы
 
-Сайт работает и можно вносить свои материалы. Если вы хотите корректировать код темы, потребуются дополнительные настройки рабочего окружения для использования таск-менеджера [gulp](http://gulpjs.com/).
+Сайт работает и можно вносить свои материалы. Если вы хотите корректировать код темы, потребуются дополнительные настройки рабочего окружения для использования таск-менеджера [Gulp](http://gulpjs.com/) (при установке на Vagrant указанные компоненты уже присутствуют в системе):
 
+- Node.js и npm ([подробнее об установке](https://nodejs.org/en/download/))
+- Bower ([подробнее об установке](http://bower.io/#install-bower))
+- Gulp, установленный глобально ([подробнее об установке](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md))
 
+Порядок установки зависимостей:
+
+```
+cd wp-content/themes/giger/
+npm install
+bower install
+```
+
+Исходники стилей темы написаны с использованием (SASS)[http://sass-lang.com/] и расположены в папке `wp-content/themes/giger/src/sass/`. Запустите `gulp watch' и редактируйте исходный SASS код - необходимые `.css` файлы сгенерируются автоматически. Используйте `gulp full-build --prod' для генерации production-ready минифицированных стилей. 
+
+**Как сменить логотип**
+
+Логотип должен быть в формате .svg в двух вариантах: полный для главной страницы - назовите файл pic-logo.svg и сохраните в папке `wp-content/themes/giger/src/svg/`, и значок для шапки и меню сайта - назовите файл plain-logo-small.svg и сохраните в той же папке.
+
+Запустите `gulp svg-opt` для замены логотипов в фалах шаблонов. При необходимости скорректируйте размер и расположение логотипов в файле `wp-content/themes/giger/src/sass/_logos.scss`.
 
 
 ## Помощь проекту
