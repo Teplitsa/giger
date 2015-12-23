@@ -1,6 +1,6 @@
-# Giger #
+# Гигер #
 
-**Cтартовый пакет для сайта НКО** - [giger.te-st.ru](https://giger.te-st.ru)
+**Адаптивный сайт-конструктор для НКО** - [giger.te-st.ru](https://giger.te-st.ru)
 
 ![Гигер](http://leyka.te-st.ru/wp-content/uploads/assets/giger-logo-temp.png?stamp=156)
 
