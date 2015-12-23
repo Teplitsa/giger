@@ -78,7 +78,7 @@
 
 6. Сайт отвечает по адресу http://giger.local. Вход в админку http://giger.local/core/wp-login.php с логином _giger_ и паролем _121121_. Необходимо создать нового пользователя http://giger.local/core/wp-admin/user-new.php, а аккаунт _giger_ удалить.
 
-Доступ к гостевой машине - 'vagrant ssh', выход - `exit`, остановить машину без потери данных - `vagrant suspend`, возобновить работу - `vagrant resume`, удалить гостевую машину `vagrant destroy`. Подробнее о командах Vagrant читайте в [документации](https://docs.vagrantup.com/v2/cli/index.html).
+Доступ к гостевой машине - 'vagrant ssh', выход - `exit`, остановить машину без потери данных - `vagrant suspend`, возобновить работу - `vagrant resume`, удалить гостевую машину `vagrant destroy`. Подробнее о командах Vagrant читайте в [документации](https://docs.vagrantup.com/v2/cli/index.html). Файлы проекта на гостевой машине расположены в папке `/var/www/public/`.
 
 
 **Уставка без Vagrant**
