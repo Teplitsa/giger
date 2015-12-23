@@ -2,7 +2,7 @@
 
 **Cтартовый пакет для сайта НКО** - [giger.te-st.ru](https://giger.te-st.ru)
 
-![Гигер](http://leyka.te-st.ru/wp-content/uploads/assets/giger-logo-temp.png?stamp=123)
+![Гигер](http://leyka.te-st.ru/wp-content/uploads/assets/giger-logo-temp.png?stamp=156)
 
 ## Основные функции:
 
