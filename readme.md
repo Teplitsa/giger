@@ -75,6 +75,7 @@
 4. Клонировать репозиторий: `git clone https://github.com/Teplitsa/giger.git .`
 
 5. Запустить `vagrant up`
+	- для Windows: если запуск не сработал, возможно дело в наличии кириллицы в имени системного пользователя, т.к. домашняя папка vagrant по умолчанию располагается в ней. Исправить это можно сменив домашнюю папку для vagrant (например: E:\vagrant). Потом изменить домашнюю папку vagrant, выполнить команду set VAGRANT_HOME=E:\vagrant
 
 6. Сайт отвечает по адресу http://giger.local. Вход в админку http://giger.local/core/wp-login.php с логином _giger_ и паролем _121121_. Необходимо создать нового пользователя http://giger.local/core/wp-admin/user-new.php, а аккаунт _giger_ удалить.
 
