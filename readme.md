@@ -2,7 +2,7 @@
 
 **Адаптивный сайт-конструктор для НКО** - [giger.te-st.ru](https://giger.te-st.ru)
 
-![Гигер](http://leyka.te-st.ru/wp-content/uploads/assets/giger-logo-temp.png?stamp=156)
+![Гигер](https://giger.te-st.ru/assets/img/giger-logo-temp.png?stamp=186)
 
 ## Основные функции:
 
