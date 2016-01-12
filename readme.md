@@ -73,27 +73,24 @@
 
 1. установите необходимые зависимости:
 
-`sudo apt-get install vagrant git virtualbox`
-
+`sudo apt-get install vagrant git virtualbox` 
 2. добавьте `192.168.13.37  giger.local` в файл хостов:
 
-`sudo -- sh -c "echo  \ \ >> /etc/hosts";sudo -- sh -c "echo 192.168.13.37  giger.local >> /etc/hosts"`
-
+`sudo -- sh -c "echo  \ \ >> /etc/hosts";sudo -- sh -c "echo 192.168.13.37  giger.local >> /etc/hosts"` 
 3. создайте в вашей домашней директории папку проекта и перейдите в нее:
 
-`mkdir ~/giger.local &&  cd ~/giger.local`
-
+`mkdir ~/giger.local &&  cd ~/giger.local` 
 4. клонируйте репозиторий проекта Гигер: 
 
-`git clone https://github.com/Teplitsa/giger.git .`
-
+`git clone https://github.com/Teplitsa/giger.git .` 
 5. запустите Vagrant командой
 
 `vagrant up`
 
 ***Установка на OS X***
 
-1. Установитe Vagrant ([подробнее об установке](https://docs.vagrantup.com/v2/installation/index.html)).
+1. Установитe Vagrant
+http://www.vagrantup.com/downloads
 
 2. добавьте `192.168.13.37  giger.local` в файл хостов:
 
@@ -113,8 +110,8 @@
 ***Установка на Windows***
 
 1. Установитe:
-- Vagrant ([подробнее об установке](https://docs.vagrantup.com/v2/installation/index.html)).
-- gti для Windows http://git-scm.com/download/win
+- Vagrant http://www.vagrantup.com/downloads
+- git для Windows http://git-scm.com/download/win
 - виртуализатор VirtualBox https://www.virtualbox.org/wiki/Downloads
 
 2. добавьте `192.168.13.37  giger.local` в файл локальных хостов %SystemRoot%\system32\drivers\etc\hosts
