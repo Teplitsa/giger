@@ -143,6 +143,7 @@ bower install
 ## Дополнительная информация
 
 **Подключение по SSH через Putty**
+
 Когда giger.local запущен, vagrant создает приватный ключ доступа в формате OpenSSH. Он находится в папке giger.local/.vagrant/machines/default/virtualbox/private_key. Чтобы загрузить этот ключ в Pagent (Putty authentication agent), нужно сначала конвертировать его в формат ppk. Это можно сделать через puttygen. Загружаем его туда и сохраняем приватный ключ. Он будет уже в формате ppk.
 
 
