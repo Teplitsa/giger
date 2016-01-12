@@ -61,26 +61,89 @@
 
 ## Установка
 
+
+
 **Установка на Vagrant**
 
-1. Установить Vagrant ([подробнее об установке](https://docs.vagrantup.com/v2/installation/index.html)).
+**Общие требования**
+- в BIOS должа быть включена [аппаратная поддержка виртуализации](https://ru.wikipedia.org/wiki/%D0%90%D0%BF%D0%BF%D0%B0%D1%80%D0%B0%D1%82%D0%BD%D0%B0%D1%8F_%D0%B2%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F) (Intel VT или AMD-V)
+- минимальное место на диске 3.5 GB
 
-2. Добавить `192.168.13.37  giger.local` в файл хостов:
-	- для OS X: `sudo -- sh -c "echo  \ \ >> /etc/hosts";sudo -- sh -c "echo 192.168.13.37  giger.local >> /etc/hosts"`
+***Установка на Ubuntu 15.10***
 
-3. Создать папку проекта:
-	- `mkdir giger.local`
-	- `cd giger.local`
+1. установите необходимые зависимости:
 
-4. Клонировать репозиторий: `git clone https://github.com/Teplitsa/giger.git .`
+`sudo apt-get install vagrant git virtualbox`
 
-5. Запустить `vagrant up`
-	- для Windows: если запуск не сработал, возможно дело в наличии кириллицы в имени системного пользователя, т.к. домашняя папка _vagrant_ по умолчанию располагается в ней. Исправить это можно создав папку для _vagrant_ (например: `E:\vagrant`) и установив ее как домашнюю папку _vagrant_, выполнить команду `set VAGRANT_HOME=E:\vagrant`.
+2. добавьте `192.168.13.37  giger.local` в файл хостов:
 
-6. Сайт отвечает по адресу http://giger.local. Вход в админку http://giger.local/core/wp-login.php с логином _giger_ и паролем _121121_. Необходимо создать нового пользователя http://giger.local/core/wp-admin/user-new.php, а аккаунт _giger_ удалить.
+`sudo -- sh -c "echo  \ \ >> /etc/hosts";sudo -- sh -c "echo 192.168.13.37  giger.local >> /etc/hosts"`
 
-Доступ к гостевой машине - `vagrant ssh`, выход - `exit`, остановить машину без потери данных - `vagrant suspend`, возобновить работу - `vagrant resume`, удалить гостевую машину `vagrant destroy`. Подробнее о командах Vagrant читайте в [документации](https://docs.vagrantup.com/v2/cli/index.html). Файлы проекта на гостевой машине расположены в папке `/var/www/public/`.
+3. создайте в вашей домашней директории папку проекта и перейдите в нее:
 
+`mkdir ~/giger.local &&  cd ~/giger.local`
+
+4. клонируйте репозиторий проекта Гигер: 
+
+`git clone https://github.com/Teplitsa/giger.git .`
+
+5. запустите Vagrant командой
+
+`vagrant up`
+
+***Установка на OS X***
+
+1. Установитe Vagrant ([подробнее об установке](https://docs.vagrantup.com/v2/installation/index.html)).
+
+2. добавьте `192.168.13.37  giger.local` в файл хостов:
+
+`sudo -- sh -c "echo  \ \ >> /etc/hosts";sudo -- sh -c "echo 192.168.13.37  giger.local >> /etc/hosts"`
+
+3. создайте в вашей домашней директории папку проекта и перейдите в нее:
+
+`mkdir ~/giger.local &&  cd ~/giger.local`
+
+4. клонируйте репозиторий проекта Гигер: 
+
+`git clone https://github.com/Teplitsa/giger.git .`
+
+5. запустите Vagrant командой
+`vagrant up`
+
+***Установка на Windows***
+
+1. Установитe:
+- Vagrant ([подробнее об установке](https://docs.vagrantup.com/v2/installation/index.html)).
+- gti для Windows http://git-scm.com/download/win
+- виртуализатор VirtualBox https://www.virtualbox.org/wiki/Downloads
+
+2. добавьте `192.168.13.37  giger.local` в файл локальных хостов %SystemRoot%\system32\drivers\etc\hosts
+
+3. создайте в вашей домашней директории папку проекта и перейдите в нее:
+
+`mkdir ~/giger.local`
+`cd ~/giger.local`
+
+4. клонируйте репозиторий проекта Гигер: 
+
+`git clone https://github.com/Teplitsa/giger.git .`
+
+5. запустите Vagrant командой
+`vagrant up`
+Eсли запуск не сработал, возможно дело в наличии кириллицы в имени системного пользователя, т.к. домашняя папка _vagrant_ по умолчанию располагается в ней. Исправить это можно создав папку для _vagrant_ (например: `E:\vagrant`) и установив ее как домашнюю папку _vagrant_, выполнить команду `set VAGRANT_HOME=E:\vagrant`.
+
+***Проверка установкки***
+
+Проверьте, что сайт отвечает по адресу 
+`http://giger.local`
+Вход в админку 
+`http://giger.local/core/wp-login.php`
+с логином _giger_ и паролем _121121_
+После входа необходимо создать нового пользователя http://giger.local/core/wp-admin/user-new.php, а аккаунт _giger_ удалить.
+
+Доступ к гостевой машине - 
+`vagrant ssh`
+выход - `exit`, остановить машину без потери данных - `vagrant suspend`, возобновить работу - `vagrant resume`, удалить гостевую машину `vagrant destroy`. Подробнее о командах Vagrant читайте в [документации](https://docs.vagrantup.com/v2/cli/index.html). Файлы проекта на гостевой машине расположены в папке `/var/www/public/`.
 
 **Уставка без Vagrant**
 
