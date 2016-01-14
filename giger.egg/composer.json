@@ -21,10 +21,6 @@
         {
             "type": "artifact",
             "url": "artifacts/"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/wp-sync-db/wp-sync-db"
         }        
     ],
     "config"      : {
@@ -54,8 +50,7 @@
     "require-dev" : {
         "wpackagist-plugin/debug-bar" : "@stable",
         "wpackagist-plugin/query-monitor" : ">=2.7.4",        
-        "wpackagist-plugin/debug-objects" : "@stable",
-        "wp-sync-db/wp-sync-db" : "dev-master",        
+        "wpackagist-plugin/debug-objects" : "@stable",            
         "wpackagist-plugin/force-regenerate-thumbnails" : "@stable",
         "wpackagist-plugin/post-duplicator" : "@stable",
         "interconnectit/search-replace-db": "@stable"
