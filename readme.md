@@ -51,19 +51,16 @@
 
 	- [Debug Bar](https://wordpress.org/plugins/debug-bar/) 
 	- [Query Monitor](https://wordpress.org/plugins/query-monitor/)       
-	- [Debug Objects](https://wordpress.org/plugins/debug-objects/) 
-	- [WP Sync DB](https://github.com/wp-sync-db/wp-sync-db) 
-	- [WP Sync DB Media Files](https://github.com/wp-sync-db/wp-sync-db-media-files)
+	- [Debug Objects](https://wordpress.org/plugins/debug-objects/) 	
 	- [Force Regenerate Thumbnails](https://wordpress.org/plugins/force-regenerate-thumbnails/) 
 	- [Post Duplicator](https://wordpress.org/plugins/post-duplicator/) 
-
 
 
 ## Установка
 
 **Установка на Vagrant**
 
-1. Установить Vagrant ([подробнее об установке](https://docs.vagrantup.com/v2/installation/index.html)).
+1. Установить Vagrant ([подробнее об установке](https://docs.vagrantup.com/v2/installation/index.html)) и [VirtualBox](https://www.virtualbox.org/).
 
 2. Добавить `192.168.13.37  giger.local` в файл хостов:
 	- для OS X: `sudo -- sh -c "echo  \ \ >> /etc/hosts";sudo -- sh -c "echo 192.168.13.37  giger.local >> /etc/hosts"`

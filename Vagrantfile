@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-
+#giger-proto v1.0 scotch/box v2.5
 Vagrant.configure(2) do |config|
   config.vm.box = "scotch/box"
   
