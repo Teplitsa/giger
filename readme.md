@@ -179,7 +179,7 @@
 	- `unzip -p ./attachments/startertest.sql.zip | mysql --user=your_db_username --password=your_db_password giger`
 
 3. Запустить: `composer install`. Если не срабатывает, то попробуйте следовать советам по ссылке: https://github.com/Teplitsa/giger/wiki/%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0
-п.2.
+п.4.
 
 4. Создать конфигурационный файл из шаблона и заполнить в нем информацию о доступе к базе данных (при установке на домен, отличный от giger.local, необходимо сменить также и домен):
 	- `cat wp-config-orig.php | sed 's/dev_db/giger/g;s/dev_user/your_db_username/g;s/dev_password/your_db_password/g;s/giger\.local/вашсайт\.ru/g' > wp-config.php` 
