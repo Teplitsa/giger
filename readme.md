@@ -160,6 +160,47 @@
 
 7. Сайт отвечает по адресу http://giger.local (или вашему домену). Вход в админку http://giger.local/core/wp-login.php с логином _giger_ и паролем _121121_. Необходимо создать нового пользователя http://giger.local/core/wp-admin/user-new.php, а аккаунт _giger_ удалить.
 
+**Уставка без Vagrant на хостинг**
+
+Нужно:
+- LAMP: PHP 5.6+ и MySQL 5.6+ (поддержка кодировки utf8mb4)
+- Composer для PHP ([подробнее об установке](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)), с правами на запуск в папке проекта
+- Для локальной установки: добавить `127.0.0.1  giger.local` в файл хостов
+- На удаленном сервере: домен, указывающий на папку проекта
+
+
+0. Зайти в папку, в которой должен размещаться код сайта (DocumentRoot).
+
+1. Клонировать репозиторий: `git clone https://github.com/Teplitsa/giger.git .` (не забудьте точку в конце, она заставляет клонировать код в ту папку, в которой вы находитесь).
+
+1.1. Перенести все файлы из папки giger.egg  на уровень выше (т.е. в DocumentRoot): 
+	- `mv giger.egg/* ./`
+
+2. Создать базу и импортировать в нее тестовые данные:
+	- `echo 'CREATE DATABASE IF NOT EXISTS giger' | mysql --user=your_db_username --password=your_db_password`
+	- `unzip -p ./attachments/startertest.sql.zip | mysql --user=your_db_username --password=your_db_password giger`
+
+3. Запустить: `composer install`
+ 
+3.1. Если не срабатывает, то попробуйте следовать советам по ссылке: https://github.com/Teplitsa/giger/wiki/%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0
+п.2.
+
+4. Создать конфигурационный файл из шаблона и заполнить в нем информацию о доступе к базе данных (при установке на домен, отличный от giger.local, необходимо сменить также и домен):
+	- `cat wp-config-orig.php | sed 's/dev_db/giger/g;s/dev_user/your_db_username/g;s/dev_password/your_db_password/g;s/giger\.local/вашсайт\.ru/g' > wp-config.php` 
+
+5. Распаковать содержимое папки с изображениями `attachments/uploads.zip` в `wp-content/uploads`:
+	- `unzip ./attachments/uploads.zip -d ./wp-content/`
+
+6. Создать файл `.htaccess` из шаблона и настроить права доступа к нему:
+	- `cat ./attachments/.htaccess.orig > .htaccess`
+	- `chmod -v 666 .htaccess`
+
+7. В базе WP заменить домен giger.local на вашсайт.ru. Для этого нужно скачать утилиту dbreplace(https://interconnectit.com/products/search-and-replace-for-wordpress-databases/) в папку сайта. Зайти в нее и запустить 2 команды:
+	- `php srdb.cli.php -h localhost -n YOUR_DB -u YOUR_DB_USER -p YOUR_DB_PASSWORD -s http://giger.local -r http://вашсайт.ru`
+	- `php srdb.cli.php -h localhost -n YOUR_DB -u YOUR_DB_USER -p YOUR_DB_PASSWORD -s giger.local -r вашсайт.ru`
+	- удалить dbreplace из папки сайта
+
+8. Сайт отвечает по адресу http://вашсайт.ru. Вход в админку http://вашсайт.ru/core/wp-login.php с логином _giger_ и паролем _121121_. Необходимо создать нового пользователя http://вашсайт.ru/core/wp-admin/user-new.php, а аккаунт _giger_ удалить.
 
 ## Изменение исходного кода темы
 
