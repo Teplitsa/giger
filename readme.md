@@ -87,7 +87,7 @@
 
 ***Установка на OS X***
 
-1. Установитe [Vagrant](http://www.vagrantup.com/downloads), [VirtualBox](https://www.virtualbox.org/) и [Git](https://git-scm.com/downloads) 
+1. Установитe [Vagrant](https://www.vagrantup.com/downloads.html), [VirtualBox](https://www.virtualbox.org/) и [Git](https://git-scm.com/downloads) 
 
 2. добавьте `192.168.13.37  giger.local` в файл хостов:
 	- `sudo -- sh -c "echo  \ \ >> /etc/hosts";sudo -- sh -c "echo 192.168.13.37  giger.local >> /etc/hosts"`
@@ -104,7 +104,7 @@
 ***Установка на Windows***
 
 1. Установитe:
-- Vagrant http://www.vagrantup.com/downloads
+- Vagrant https://www.vagrantup.com/downloads.html
 - git для Windows http://git-scm.com/download/win
 - виртуализатор VirtualBox https://www.virtualbox.org/wiki/Downloads
 
