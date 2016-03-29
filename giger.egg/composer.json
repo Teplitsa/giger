@@ -24,7 +24,8 @@
         }        
     ],
     "config"      : {
-        "vendor-dir": "wp-content/vendor"
+        "vendor-dir": "wp-content/vendor",
+        "secure-http": false
     },
    "require"     : {
         "composer/installers": "~1.0",  
