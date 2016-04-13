@@ -83,7 +83,7 @@
 
 5. запустите Vagrant командой
 
-`vagrant up`
+	- `cd giger && vagrant up`
 
 ***Установка на OS X***
 
