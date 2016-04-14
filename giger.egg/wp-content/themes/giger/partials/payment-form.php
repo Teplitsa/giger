@@ -14,7 +14,7 @@ $agree_link = home_url();
 
 leyka_pf_submission_errors();?>
 
-<div id="leyka-payment-form" class="leyka-custom-template">
+<div id="leyka-payment-form" class="leyka-custom-template" data-template="toggles">
 <?php
 	$counter = 0;
 	foreach($active_pm as $i => $pm) {
@@ -40,14 +40,14 @@ leyka_pf_submission_errors();?>
 	
 	<div class="leyka-field amount">
 		<div><div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label figure">	
-			<input type="text" name="leyka_donation_amount" class="required mdl-textfield__input" id="donate_amount_flex" value="<?php echo esc_attr($supported_curr[$current_curr]['amount_settings']['flexible']);?>">                
+			<input type="text" name="leyka_donation_amount" class="donate_amount_flex required mdl-textfield__input" id="donate_amount_flex" value="<?php echo esc_attr($supported_curr[$current_curr]['amount_settings']['flexible']);?>">
 			<label for="leyka_donation_amount" class="leyka-screen-reader-text mdl-textfield__label">Сумма</label>			
 		</div>
 		<div class="currency">
 			<?php echo $leyka_current_pm->get_currency_field();?>
 		</div>
 		</div>
-		<span id="leyka_donation_amount-error" class="field-error mdl-textfield__error"></span>
+		<span id="leyka_donation_amount-error" class="leyka_donation_amount-error field-error mdl-textfield__error"></span>
 	</div>
 		
 	<?php } //if amount
@@ -60,9 +60,9 @@ leyka_pf_submission_errors();?>
 	<!-- name -->
 	<?php if($leyka_current_pm->is_field_supported('name') ) { ?>
 	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label leyka-field name">
-		<input type="text" class="required mdl-textfield__input" name="leyka_donor_name" id="leyka_donor_name" value="">
+		<input type="text" class="required non-email mdl-textfield__input" name="leyka_donor_name" id="leyka_donor_name" value="">
 		<label for="leyka_donor_name" class="leyka-screen-reader-text mdl-textfield__label"><?php _e('Your name', 'leyka');?></label>		
-		<span id="leyka_donor_name-error" class="field-error mdl-textfield__error"></span>
+		<span id="leyka_donor_name-error" class="leyka_donor_name-error field-error mdl-textfield__error"></span>
 	</div>
 	<?php  }?>
 	
@@ -71,7 +71,7 @@ leyka_pf_submission_errors();?>
 	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label leyka-field email">
 		<input type="text" value="" id="leyka_donor_email" name="leyka_donor_email" class="required email mdl-textfield__input">
 		<label class="leyka-screen-reader-text mdl-textfield__label" for="leyka_donor_email">Ваш email</label>
-		<span class="field-error mdl-textfield__error" id="leyka_donor_email-error"></span>
+		<span class="leyka_donor_email-error field-error mdl-textfield__error" id="leyka_donor_email-error"></span>
 	</div>
 	<?php  }?>
 	
@@ -89,7 +89,7 @@ leyka_pf_submission_errors();?>
                 <?php echo leyka_options()->opt('agree_to_terms_text');?>
             </a>
 		</label>		
-		<p class="field-error mdl-textfield__error" id="<?php echo $agree_check_id;?>-error"></p>
+		<p class="leyka_agree-error field-error mdl-textfield__error" id="<?php echo $agree_check_id;?>-error"></p>
 	</div>	
 	<?php }?>
 	
