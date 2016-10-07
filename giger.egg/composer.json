@@ -43,7 +43,7 @@
         "wpackagist-plugin/wordpress-seo" : "@stable",
         "wpackagist-plugin/w3-total-cache": "@stable",
         "wpackagist-plugin/posts-to-posts": "@stable",
-        "wpackagist-plugin/ninja-forms": "@stable",
+        "wpackagist-plugin/ninja-forms": "2.9.33",
         "wpackagist-plugin/cmb2": "@stable",        
         "koodimonni-language/core-ru_RU": "*" ,
         "tst/cmb2-attached-posts" : ">=1.2.2"
