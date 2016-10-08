@@ -215,6 +215,8 @@ npm install
 bower install
 ```
 
+Для Windows все немного сложнее. Следуйте этой инструкции: https://github.com/Teplitsa/giger/wiki/%D0%97%D0%B0%D0%BF%D1%83%D1%81%D0%BA-gulp
+
 Исходники стилей темы написаны с использованием [SASS](http://sass-lang.com/) и расположены в папке `wp-content/themes/giger/src/sass/`. Запустите `gulp watch` и редактируйте исходный SASS код - соответствующие .css файлы сгенерируются автоматически. Используйте `gulp full-build --prod` для генерации production-ready минифицированных стилей. 
 
 **Как сменить логотип**
