@@ -254,7 +254,7 @@ body.single-leyka_campaign .page-header {
 
 //submit errors
 #leyka-submit-errors {
-	@extend .frm_message;
+	@extend .mdl-textfield__error;
 	& > span { font-weight: 500; }
 }
 
